@@ -50,11 +50,57 @@
     * 使用def关键字
     * All variable assignments in a function store the value in the local symbol table;whereas variable references first look in the local symbol table, then in the local symbol tables of enclosing functions, then in the global symbol table, and finally in the table of built-in names.
     * Global variables cannot be directly assigned a value within a function (unless named in a global statement).
-
-
+    * When a function calls another function, a new local symbol table is created for that call.
+    * python中函数可以赋值。 (f = func1)
+    * 函数可返回一个集合，比如List。如果函数没有返回值，则返回None。
+    * More on Defining Fuprint(my_function.__)
+nctions
+        * Default Argument Values
+            * def ask_ok(prompt, retries=4, reminder='Please try again!')
+            * **The default values are evaluated at the point of function definition in the defining scope**
+            * **Important warning:** The default value is evaluated only once. 
+        * Keyword Arguments
+            * Functions can also be called using keyword arguments of the form kwarg=value.
+            * \*\*name is present, it receives a dictionary; \*name must occur before \*\*name.
+        * 可变参数列表（Arbitrary Argument Lists）
+            * These arguments will be wrapped up in a tuple.
+            * def concat(*args) ...
+        * Unpacking Argument Lists
+            * \*-操作符会把list或tuple解压。
+            * args = [3, 6]; list(range(\*args)); // 等价于 list(range(3,6)) == [3,4,5]
+            * 如果是字典，使用\*\*来解压。
+                * def parrot(voltage, state='a stiff', action='voom') ...
+                * d = {"voltage": "four million", "state": "bleedin' demised", "action": "VOOM"}
+                * parrot(\*\*d)
+        * Lambda表达式
+            * 小的匿名函数可以使用lambda表达式来创建。
+            * Like nested function definitions, lambda functions can reference variables from the containing scope.
+                * ```python
+                    def make_incrementor(n):
+                        return lambda x: x + n
+                  ```
+            * Another use is to pass a small function as an argument
+                * pairs.sort(key=lambda pair: pair[1])
+        * Documentation Strings(文档注释)
+            * The first line should always be a short, concise summary of the object’s purpose. This line should begin with a capital letter and end with a period.
+            * 如果文档需要多行，则第二行应空。隔开summary与description。
+            * 从第三起，使用1个或多个段落来描述对象的调用约定、副作用（注意事项）等等。
+            * python解析器并不会去除multi-line string（多行字符串）中的缩进，如果需要，应使用文档处理工具进行处理。
+                * 第三行（简单来说）决定了整个文档的总缩进。不用第一行，因为第一行总是紧跟着三引号（"""）的。
+            * Example             
+            ```python
+                def my_function():
+                """Do nothing, but document it.
+                
+                No, really, it doesn't do anything.
+                """
+                    pass
+            ```    
+        * Function Annotations
+            * Function annotations are completely optional metadata information about the types used by user-defined functions (see PEP 3107 and PEP 484 for more information).
+            * Annotations are stored in the **__annotations__** attribute of the function as a dictionary. 
+        
     
-
-
 
 
 
