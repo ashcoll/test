@@ -1,1 +1,11 @@
 this is a test, 2018
+
+
+---
+
+
+```javascript
+如：var $v = $("#v");  // 得到jQuery对象
+
+var v = $v.get(0);
+```
